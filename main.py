@@ -9,9 +9,10 @@ def buscar_nueva():
     img = Image.open(archivo)
     img = img.resize((500,300))
     img = ImageTk.PhotoImage(img)
-    imagen = tkinter.Label(ventana, image=img)
+    global imagen
+    imagen.configure(image=img)
     imagen.image = img
-    imagen.pack()
+    
     
 ventana = tkinter.Tk()
 ventana.title("Editor de Imagenes")
@@ -26,7 +27,8 @@ btn = tkinter.Button(ventana, text="Buscar", height=3, width=10, command= buscar
 btn.configure(bg="grey")
 btn.pack()
 
-
+imagen = tkinter.Label(ventana)
+imagen.pack()
 
 
 ventana.mainloop()
